@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big gallery</title>
+    <link rel="stylesheet" href="swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="padding: 0; margin: 0">
+    <style>
+      .slr-main-gallery .swiper-button-next:after,
+      .slr-main-gallery .swiper-button-prev:after {
+        color: blueviolet;
+      }
+      .slr-main-gallery .swiper-pagination-bullet {
+        border: 1px solid blueviolet;
+      }
+      .slr-main-gallery .swiper-pagination-bullet-active {
+        background-color: blueviolet;
+      }
+      .slr-main-gallery .swiper-timer {
+        border-top: 1px solid blueviolet;
+      }
+      .slr-main-gallery .swiper-lazy-preloader {
+        border-right-color: blueviolet;
+        border-bottom-color: blueviolet;
+        border-left-color: blueviolet;
+      }
+    </style>
+
+    <div
+      class="slr-main-gallery"
+      style="min-height: 500px; background-color: #f2f2f2"
+    >
+      <div class="swiper" data-delay="5000">
+        <div class="swiper-wrapper">
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/1.jpg" />
+              <source media="(max-width: 767px)" srcset="images/10.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/2.jpg" />
+              <source media="(max-width: 767px)" srcset="images/9.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/3.jpg" />
+              <source media="(max-width: 767px)" srcset="images/8.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/4.jpg" />
+              <source media="(max-width: 767px)" srcset="images/7.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/5.jpg" />
+              <source media="(max-width: 767px)" srcset="images/6.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/6.jpg" />
+              <source media="(max-width: 767px)" srcset="images/5.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/7.jpg" />
+              <source media="(max-width: 767px)" srcset="images/4.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/8.jpg" />
+              <source media="(max-width: 767px)" srcset="images/3.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/9.jpg" />
+              <source media="(max-width: 767px)" srcset="images/2.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+          <a href="" class="swiper-slide"
+            ><picture>
+              <source media="(min-width: 768px)" srcset="images/10.jpg" />
+              <source media="(max-width: 767px)" srcset="images/1.jpg" />
+              <img src="images/1.jpg" alt="" class="swiper-lazy" />
+              <span class="swiper-lazy-preloader"></span>
+            </picture>
+          </a>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <div class="swiper-timer"></div>
+      </div>
+    </div>
+
+    <script src="swiper-bundle.min.js"></script>
+    <script>
+      window.addEventListener('load', () => {
+        document
+          .querySelectorAll('.slr-main-gallery .swiper')
+          .forEach((swiper) => {
+            let delay = 1 * swiper.getAttribute('data-delay');
+            let timer = swiper.querySelector('.swiper-timer');
+
+            new Swiper(swiper, {
+              // Optional parameters
+              loop: true,
+              lazy: {
+                loadPrevNext: true,
+              },
+              autoplay: {
+                delay: delay,
+                disableOnInteraction: false,
+              },
+
+              // If we need pagination
+              pagination: {
+                el: '.swiper-pagination',
+              },
+
+              // Navigation arrows
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+
+              // And if we need scrollbar
+              scrollbar: {
+                el: '.swiper-scrollbar',
+              },
+              on: {
+                afterInit: () => {
+                  //set time to the detay attribute
+                  let swiperId = swiper
+                    .querySelector('.swiper-wrapper')
+                    .getAttribute('id');
+                  let styleTag = document.createElement('style');
+                  styleTag.textContent = `
+                    .slr-main-gallery #${swiperId} ~ .swiper-timer--animate {
+                      -webkit-transition-duration: ${delay}ms;
+                      transition-duration: ${delay}ms;
+                    }
+                  `;
+                  document.head.appendChild(styleTag);
+                },
+                transitionStart: () => {
+                  if (!timer) return;
+                  timer.classList.remove('swiper-timer--animate');
+                  timer.style.width = '0';
+                },
+                transitionEnd: () => {
+                  if (!timer) return;
+                  timer.classList.add('swiper-timer--animate');
+                  timer.style.width = '100%';
+                },
+              },
+            });
+          });
+      });
+    </script>
+  </body>
+</html>
